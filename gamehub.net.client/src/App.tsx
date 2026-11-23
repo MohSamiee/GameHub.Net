@@ -1,11 +1,10 @@
-import './App.css';
+import { Button } from '@chakra-ui/react';
 
 function App() {
     return (
-        <main>
-            <h1>GameHub</h1>
-            <p>React learning project — ready to build.</p>
-        </main>
+        <Button colorPalette="blue">
+            Test
+        </Button>
     );
 }
 
