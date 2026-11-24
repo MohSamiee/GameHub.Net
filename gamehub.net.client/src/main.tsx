@@ -1,12 +1,20 @@
-import react from 'react'
-import { createRoot } from 'react-dom/client'
-import './index.css'
-import App from './App.tsx'
-import { ChakraProvider, defaultSystem } from '@chakra-ui/react';
-createRoot(document.getElementById('root')!).render(
+import react from "react";
+import { createRoot } from "react-dom/client";
+import { ChakraProvider } from "@chakra-ui/react";
+import { ThemeProvider } from "next-themes";
+import App from "./App";
+import theme, { config } from "./theme";
+import "./index.css";
+
+createRoot(document.getElementById("root")!).render(
   <react.StrictMode>
-  <ChakraProvider value={defaultSystem}>
-    <App />
-  </ChakraProvider> 
-  </react.StrictMode>,
-)
+    <ChakraProvider value={theme}>
+      <ThemeProvider
+        attribute="class"
+        defaultTheme={config.initialColorMode}
+      >
+        <App />
+      </ThemeProvider>
+    </ChakraProvider>
+  </react.StrictMode>
+);
