@@ -4,8 +4,9 @@ import { getCroppedImageUrl } from "../services/imgae-url";
 import GenreListSkeleton from "./GenreListSkeleton";
 interface Props {
   onSelectGenre: (genre: Genre) => void;
+  selectedGenre: Genre | null;
 }
-const GenreList = ({ onSelectGenre }: Props) => {
+const GenreList = ({ onSelectGenre, selectedGenre }: Props) => {
   const { data, loading, error } = useGenres();
   if (loading) {
     return <GenreListSkeleton />;
@@ -24,8 +25,10 @@ const GenreList = ({ onSelectGenre }: Props) => {
               boxSize="32px"
               borderRadius={8}
             />
+
             <Button
-              variant="ghost"
+              variant={selectedGenre?.id === genre.id ? "subtle" : "ghost"}
+              fontWeight={selectedGenre?.id === genre.id ? "bold" : "normal"}
               fontSize="lg"
               onClick={() => onSelectGenre(genre)}
             >
