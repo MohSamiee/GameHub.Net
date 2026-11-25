@@ -1,7 +1,6 @@
 import { Switch, HStack } from "@chakra-ui/react";
 import { useTheme } from "next-themes";
 
-
 const ColorModeSwitch = () => {
   const { resolvedTheme: colorMode, setTheme } = useTheme();
 
@@ -9,7 +8,7 @@ const ColorModeSwitch = () => {
     setTheme(colorMode === "dark" ? "light" : "dark");
   };
 
-    return (
+  return (
     <HStack>
       <Switch.Root
         checked={colorMode === "dark"}
