@@ -11,7 +11,7 @@ const PlatformSelector = ({ onSelectPlatform, selectedPlatform }: Props) => {
   return (
     <Menu.Root>
       <MenuTrigger asChild>
-        <Button>
+        <Button variant="surface">
           {selectedPlatform?.name || "Platforms"}
           <BsChevronBarDown />
         </Button>
