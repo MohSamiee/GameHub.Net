@@ -39,6 +39,9 @@ const GenreList = ({ onSelectGenre, selectedGenre }: Props) => {
               />
 
               <Button
+                height="auto"
+                flex={1}
+                justifyContent="flex-start"
                 whiteSpace="normal"
                 textAlign="left"
                 variant={selectedGenre?.id === genre.id ? "subtle" : "ghost"}
