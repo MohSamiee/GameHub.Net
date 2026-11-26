@@ -10,6 +10,7 @@ import {
 } from "react-icons/fa";
 import { MdPhoneIphone } from "react-icons/md";
 import { BsNintendoSwitch, BsGlobe } from "react-icons/bs";
+import { SiSega } from "react-icons/si";
 import type { IconType } from "react-icons";
 
 interface Props {
@@ -26,14 +27,28 @@ const PlatformIconList = ({ platforms }: Props) => {
     linux: FaLinux,
     ios: MdPhoneIphone,
     web: BsGlobe,
+    sega: SiSega,
   };
-  return (
-    <HStack>
-      {platforms.map((p) => (
-        <Icon as={iconMap[p.slug]} key={p.id} color="gray.500" />
-      ))}
-    </HStack>
-  );
+  {
+    return (
+      <HStack>
+        {platforms.map((p) => {
+          const PlatformIcon = iconMap[p.slug];
+
+          if (!PlatformIcon) {
+            console.log(p);
+            return null;
+          }
+
+          return (
+            <Icon key={p.id} color="gray.500">
+              <PlatformIcon />
+            </Icon>
+          );
+        })}
+      </HStack>
+    );
+  }
 };
 
 export default PlatformIconList;
